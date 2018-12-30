@@ -1,11 +1,84 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>TODO supply a title</title>
+        <title>8 Puzzle - S. Tarık Çetin</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="stylesheet" href="style.css" type="text/css"/>
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="page.js" type="text/javascript"></script>
+        <script src="game.js" type="text/javascript"></script>
     </head>
+
     <body>
-        <div>TODO write content</div>
+        <div id="home">
+            <h1>
+                8 Puzzle
+            </h1>
+
+            <div id="homeContent">
+                <p>
+                    Term project for
+                    CTIS 255 - Web Technologies
+                    Fall 2018
+                </p>
+
+                <p class="hide">
+                    S. Tarık Çetin
+                    21702765
+                </p>
+
+                <p class="hide">
+                    Enjoy.
+                </p>
+            </div>
+
+            <div id="homeToImageSelectButton" class="button">
+                Play
+            </div>
+        </div>
+
+        <div id="imageSelect" class="hide">
+            <h1>
+                Select an Image
+            </h1>
+
+            <span class="imageButton">
+                Image 1
+            </span>           
+
+            <span class="imageButton">
+                Image 2
+            </span>   
+
+            <span class="imageButton">
+                Image 3
+            </span>
+
+            <div id="continueButton" class="hide button">
+                Continue
+            </div>
+        </div>
+
+        <div id="game" class="hide">
+            <div id="gameGrid">
+                GAME GRID
+            </div>
+
+            <p id="shuffleAmountSelect">
+                Select:
+                <select>
+                    <option>Shuffle Amount</option>
+                    <option>3</option>
+                    <option>30</option>
+                </select>
+            </p>
+
+            <p id="gameIsOn" class="hide">
+                The game is on.
+            </p>
+        </div>
     </body>
 </html>
