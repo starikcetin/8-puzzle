@@ -95,6 +95,8 @@
 }
 
 .gameCell {
+    transition-duration: 0.5s;
+    
     border: #AAA 1px solid;
     border-radius: 10px;
 

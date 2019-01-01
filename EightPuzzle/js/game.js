@@ -18,12 +18,13 @@ function setUpTheGrid(image) {
 
 function shuffle(grid, moves) {
     
-
 }
 
 function switchCellsWithIndex(grid, i1, i2) {
-    switchCells($(grid.children()[i1]),
-            $(grid.children()[i2]));
+    var a = $(grid.children()[i1]);
+    var b = $(grid.children()[i2]);
+    
+    switchCells(a, b);
 }
 
 function switchCells(a, b) {
