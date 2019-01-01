@@ -1,0 +1,11 @@
+.centerContentHorizontal {
+    text-align: center;
+}
+
+.centerContentVertical {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
