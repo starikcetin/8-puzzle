@@ -87,22 +87,29 @@
 }
 
 #gameGrid {
-    display: grid;
-    width: 500px;
-    height: 500px;
-    grid-template-columns: auto auto auto;
-    grid-gap: 2px;
+    width: 900px;
+    height: 900px;
+    position: relative;
+    font-size:0;
 }
 
 .gameCell {
-    transition-duration: 0.5s;
-    
-    border: #AAA 1px solid;
-    border-radius: 10px;
+    transition-duration: 1s;
 
-    display : flex;
+    position: absolute;
+    top:0;
+    left:0;
+
+    box-sizing: border-box;
+    border: #AAA 1px solid;
+    border-radius: 100px;
+
+    display: inline-flex;
     align-items: center;
     justify-content: center;
+
+    background: bisque;
+    font-size: 50px;
 }
 
 #dummyCell {

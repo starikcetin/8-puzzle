@@ -1,28 +1,29 @@
 function setUpTheGrid(image) {
-    $("#gameGrid").makeGridCellsUniformWithExplicitStartAndEnd();
-    shuffle($("#gameGrid"), 3);
+
+    var grid = $("#gameGrid");
+    var cells = grid.children();
+
+    var w = grid.width() / 3;
+    var h = grid.height() / 3;
+
+    cells.each(function (index) {
+        var cell = $(this);
+        var l = w * (index % 3);
+        var t = h * Math.floor(index / 3);
+
+        cell.css({top: t, left: l, width: w, height: h});
+    });
+
 }
 
-function shuffle(grid, moves) {
-    
+function shuffle(moves) {
+
 }
 
-function switchCellsWithIndex(grid, i1, i2) {
-    var a = $(grid.children()[i1]);
-    var b = $(grid.children()[i2]);
-    
-    switchCells(a, b);
+function switchCellsWithIndex(a, b) {
+
 }
 
 function switchCells(a, b) {
-    // fisher - yates
-    
-    var aRow = a.gridRowStart();
-    var aCol = a.gridColumnStart();
 
-    a.gridRowStart(b.gridRowStart());
-    a.gridColumnStart(b.gridColumnStart());
-
-    b.gridRowStart(aRow);
-    b.gridColumnStart(aCol);
 }

@@ -23,10 +23,10 @@ $(function () {
     });
 
     $("#continueButton").click(function () {
+        setUpTheGrid(selectedImage);
+        
         $("#imageSelect").fadeOut(350, function () {
             $("#game").fadeIn(350);
-            
-            setUpTheGrid(selectedImage);
         });
     });
 });
