@@ -94,7 +94,7 @@
 }
 
 .gameCell {
-    transition-duration: 1s;
+    /*transition-duration: 1s;*/
 
     position: absolute;
     top:0;
@@ -102,16 +102,16 @@
 
     box-sizing: border-box;
     border: #AAA 1px solid;
-    border-radius: 100px;
+    border-radius: 10px;
 
     display: inline-flex;
     align-items: center;
     justify-content: center;
 
-    background: bisque;
+    /*background: bisque;*/
     font-size: 50px;
 }
 
 #dummyCell {
-    background: #DDD;
+    /*background: #DDD;*/
 }

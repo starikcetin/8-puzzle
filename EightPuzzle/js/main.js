@@ -1,4 +1,11 @@
 $(function () {
+    //
+    $("#home").hide();
+    $("#game").show();
+    setUpTheGrid(undefined);
+    return;
+    //
+    
     var homeContentCycle = $("#homeContent")
             .encapsulateLargestChild()
             .fadeCycleChildren(500, 500, 500);

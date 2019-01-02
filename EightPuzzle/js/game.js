@@ -3,6 +3,8 @@ function setUpTheGrid(image) {
     var grid = $("#gameGrid");
     var cells = grid.children();
 
+    var gw = grid.width();
+    var gh = grid.height();
     var w = grid.width() / 3;
     var h = grid.height() / 3;
 
@@ -11,7 +13,15 @@ function setUpTheGrid(image) {
         var l = w * (index % 3);
         var t = h * Math.floor(index / 3);
 
-        cell.css({top: t, left: l, width: w, height: h});
+        cell.css({
+            top: t,
+            left: l,
+            width: w,
+            height: h,
+            "background": "url(res/1.jpg) no-repeat",
+            "background-size": gw + "px " + gh + "px",
+            "background-position": (-l) + "px " + (-t) + "px"
+        });
     });
 
 }
