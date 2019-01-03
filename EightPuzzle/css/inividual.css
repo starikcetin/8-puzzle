@@ -46,7 +46,7 @@
     border-top-color: aqua;
 }
 
-.imageButton:nth-of-type(1){
+/*.imageButton:nth-of-type(1){
     background-image: url('../res/1.jpg');
 }
 
@@ -56,15 +56,24 @@
 
 .imageButton:nth-of-type(3){
     background-image: url('../res/3.jpg');
-}
+}*/
 
 #homeContent {
     margin-top:20px;
     margin-bottom:15px;
+    overflow: hidden;
 }
 
-#homeContent > * {
-    display: inline-block;
+#homeContent > div {
+    /*display: block;*/
+    width: 100%;
+    height: 100%;
+    
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
 }
 
 /*#home {
@@ -87,8 +96,8 @@
 }
 
 #gameGrid {
-    width: 900px;
-    height: 900px;
+    width: 700px;
+    height: 700px;
     position: relative;
     font-size:0;
 }
@@ -109,9 +118,13 @@
     justify-content: center;
 
     /*background: bisque;*/
-    font-size: 50px;
+    font-size: 200px;
+    color: white;
 }
 
 #dummyCell {
-    /*background: #DDD;*/
+    background: #DDD !important;
+
+    color: black;
+    font-size: 75px;
 }

@@ -1,6 +1,6 @@
 (function ($) {
-    
-    $(function() {
+
+    $(function () {
         // https://github.com/jquery/jquery/issues/4007#issuecomment-372592926
         $.cssNumber.gridColumnStart = true;
         $.cssNumber.gridColumnEnd = true;
@@ -22,6 +22,8 @@
         }
     };
 
+    // returns the setInterval id. 
+    // so you can call clearInterval on it to stop the animation.
     $.fn.fadeCycleChildren = function (fadeOutT, fadeInT, delayT, stepCallback) {
         var children = this.children();
 
@@ -155,7 +157,7 @@
         children.each(function (index) {
             var row = Math.floor(index / columnCount);
             var column = index % columnCount;
-            
+
             var cell = $(this);
 
             cell.gridRowStart(row + 1);
@@ -165,6 +167,14 @@
         });
 
         return this;
+    };
+
+    // Source: https://stackoverflow.com/a/2700029/6301627
+    $.fn.disableSelection = function () {
+        return this
+                .attr('unselectable', 'on')
+                .css('user-select', 'none')
+                .on('selectstart', false);
     };
 
 }(jQuery));

@@ -1,4 +1,7 @@
-function setUpTheGrid(image) {
+// imagePath must be wrapped in 'url()'
+function setUpTheGrid(imagePath) {
+
+    console.log(imagePath);
 
     var grid = $("#gameGrid");
     var cells = grid.children();
@@ -18,7 +21,7 @@ function setUpTheGrid(image) {
             left: l,
             width: w,
             height: h,
-            "background": "url(res/1.jpg) no-repeat",
+            "background": imagePath + " no-repeat",
             "background-size": gw + "px " + gh + "px",
             "background-position": (-l) + "px " + (-t) + "px"
         });
