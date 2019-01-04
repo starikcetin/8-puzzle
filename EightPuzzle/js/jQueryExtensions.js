@@ -79,8 +79,9 @@
 
         children.each(function () {
             var it = $(this);
-            var w = it.width();
-            var h = it.height();
+            
+            var w = it.outerWidth();
+            var h = it.outerHeight();
 
             if (w > maxW) {
                 maxW = w;

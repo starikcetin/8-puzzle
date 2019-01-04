@@ -77,9 +77,6 @@ function imageSelect() {
 const cellIdentities = [];
 
 function game() {
-
-    $("#belowGrid").encapsulateLargestChild();
-
     for (let i = 0; i < 9; i++) {
         const indexForClosure = i;
 
@@ -118,10 +115,12 @@ function game() {
 
         if (selected.index() !== 0) {
             $('#shuffleAmountSelect').animate({opacity: 0}, 250, function () {
-                
+
                 shuffleCells(selected.text(), function () {
-                    $('#shuffleAmountSelect').css('display', 'none');
-                    $('#gameIsOn').fadeIn(250);
+                    $('#shuffleAmountSelect').fadeOut(0, function () {
+                        $('#gameIsOn').fadeIn(250);
+                    });
+
                 });
             });
         }
