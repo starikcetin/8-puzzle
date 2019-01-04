@@ -6,21 +6,20 @@ $(function () {
 
     $("html").disableSelection();
 
-//    //
-//    $("#home").hide();
-//    $("#game").show();
-//    setUpTheGrid(undefined);
-//    return;
-//    //
-
     home();
     imageSelect();
     game();
+
+    // --- DEBUG BEGIN ---
+    $("#home").hide();
+    $("#game").show();
+    setUpTheGame(getImageWithIndex(0));
+    // --- DEBUG END   ---
 });
 
 
 function home() {
-    var homeContentCycle = $("#homeContent")
+    const homeContentCycle = $("#homeContent")
         .encapsulateLargestChild()
         .fadeCycleChildren(500, 500, 500);
 
@@ -33,9 +32,9 @@ function home() {
 }
 
 function imageSelect() {
-    var selectedImageIndex = 0;
+    let selectedImageIndex = 0;
 
-    for (var i = 0; i < imageCount; i++) {
+    for (let i = 0; i < imageCount; i++) {
         // closures always get the i = 3, so we need to fix that with a const.
         // this will force interpreter to create a new variable for each value.
         const indexForClosure = i;
@@ -57,7 +56,7 @@ function imageSelect() {
     }
 
     $("#continueButton").click(function () {
-        setUpTheGrid(getImageWithIndex(selectedImageIndex));
+        setUpTheGame(getImageWithIndex(selectedImageIndex));
 
         $("#imageSelect").fadeOut(350, function () {
             $("#game").fadeIn(350);
@@ -65,19 +64,56 @@ function imageSelect() {
     });
 }
 
-function game() {
-    $("<div>")
-        .text("dummy")
-        .attr("id", "dummyCell")
-        .addClass("gameCell")
-        .appendTo("#gameGrid");
+const cellIdentities = [];
 
-    for (var i = 1; i < 9; i++) {
-        $("<div>")
+function game() {
+    const grid = $("#gameGrid");
+
+    const gw = grid.width();
+    const gh = grid.height();
+    const w = grid.width() / 3;
+    const h = grid.height() / 3;
+
+    for (let i = 0; i < 9; i++) {
+        const indexForClosure = i;
+
+        const l = w * (i % 3);
+        const t = h * Math.floor(i / 3);
+
+        const cell = $("<div>")
             .text(i)
             .addClass("gameCell")
+            .css({
+                top: t,
+                left: l,
+                width: w,
+                height: h,
+                "background-size": gw + "px " + gh + "px",
+                "background-position": (-l) + "px " + (-t) + "px"
+            })
+            .click(() => cellClicked(indexForClosure, cell))
             .appendTo("#gameGrid");
+
+        if (i === 0) {
+            cell
+                .text("dummy")
+                .attr("id", "dummyCell");
+        }
+
+        cellIdentities[i] = cell;
     }
+
+    $("#shuffleAmountSelect select").change(function () {
+        const selected = $(this).find(":selected");
+
+        if (selected.index() !== 0) {
+            $('#shuffleAmountSelect').fadeOut(250);
+
+            shuffle(selected.text(), 3000, function () {
+                $('#gameIsOn').fadeIn(250);
+            });
+        }
+    });
 }
 
 function getImageWithIndex(index) {

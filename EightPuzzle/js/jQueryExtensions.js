@@ -11,7 +11,7 @@
     $.fn.nextCircular = function () {
         if (this.siblings().length === 0) {
             console.warn("nextCircular: "
-                    + "this has no siblings. Returning this.");
+                + "this has no siblings. Returning this.");
             return this;
         }
 
@@ -29,13 +29,13 @@
 
         if (children.length === 0) {
             console.warn("fadeCycleChildren: "
-                    + "this has no children. Returning.");
+                + "this has no children. Returning.");
             return this;
         }
 
         if (children.length === 1) {
             console.warn("fadeCycleChildren: "
-                    + "this has only one children.");
+                + "this has only one children.");
         }
 
         var current = children.first();
@@ -65,13 +65,13 @@
 
         if (children.length === 0) {
             console.warn("encapsulateLargestChild: "
-                    + "this has no children. Returning.");
+                + "this has no children. Returning.");
             return this;
         }
 
         if (children.length === 1) {
             console.warn("encapsulateLargestChild: "
-                    + "this has only one children.");
+                + "this has only one children.");
         }
 
         var maxH = -1;
@@ -140,7 +140,7 @@
     $.fn.makeGridCellsUniformWithExplicitStartAndEnd = function () {
         if (this.css("display") !== "grid") {
             console.warn("makeGridPositionsExplicit: "
-                    + "this is not a CSS grid. Returning.");
+                + "this is not a CSS grid. Returning.");
             return this;
         }
 
@@ -148,7 +148,7 @@
 
         if (children.length === 0) {
             console.warn("makeGridPositionsExplicit: "
-                    + "this has no children. Returning.");
+                + "this has no children. Returning.");
             return this;
         }
 
@@ -172,9 +172,27 @@
     // Source: https://stackoverflow.com/a/2700029/6301627
     $.fn.disableSelection = function () {
         return this
-                .attr('unselectable', 'on')
-                .css('user-select', 'none')
-                .on('selectstart', false);
+            .attr('unselectable', 'on')
+            .css('user-select', 'none')
+            .on('selectstart', false);
+    };
+
+    Array.prototype.randomElement = function () {
+        return this[Math.floor(Math.random() * this.length)];
+    };
+
+    Array.prototype.swap = function (i1, i2) {
+        const val1 = this[i1];
+        this[i1] = this[i2];
+        this[i2] = val1;
+    };
+
+    Array.prototype.exceptVal = function (val) {
+        return this.splice().filter(n => n !== val);
+    };
+
+    Array.prototype.exceptIndex = function (index) {
+        return this.slice(0, index-1).concat(this.slice(index, this.length));
     };
 
 }(jQuery));

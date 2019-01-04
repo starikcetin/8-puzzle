@@ -116,3 +116,7 @@
     color: black;
     font-size: 75px;
 }
+
+.highlightedCell {
+    border: 25px darkred solid;
+}
