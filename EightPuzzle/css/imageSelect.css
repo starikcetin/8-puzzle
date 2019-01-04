@@ -1,0 +1,35 @@
+.imageButton {
+    transition-duration: 0.5s;
+
+    padding: 20px;
+    width: 300px;
+    height: 300px;
+
+    border: transparent 1px solid;
+
+    background-repeat: no-repeat;
+    background-origin: content-box;
+    background-size: 300px;
+}
+
+.imageButton:hover {
+    transition-duration: 0.5s;
+
+    /*border-left-color: #AAA;*/
+    border-top-color: aqua;
+}
+
+
+#imageButtonContainer {
+    display: flex;
+}
+
+#selectedImageButton {
+    transition-duration: 0.5s;
+
+    width: 320px;
+    height: 320px;
+    background-size: 320px;
+
+    padding: 10px;
+}

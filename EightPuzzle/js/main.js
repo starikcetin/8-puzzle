@@ -78,6 +78,8 @@ const cellIdentities = [];
 
 function game() {
 
+    $("#belowGrid").encapsulateLargestChild();
+
     for (let i = 0; i < 9; i++) {
         const indexForClosure = i;
 
@@ -93,12 +95,12 @@ function game() {
                     left: left,
                     width: cellWidth - margin * 2,
                     height: cellHeight - margin * 2,
-                    "background-size": gridWidth - margin * 2 + "px " + gridHeight - margin * 2 + "px",
+                    "background-size": gridWidth + "px " + gridHeight + "px",
                     "background-position": (-left) + "px " + (-top) + "px",
                     "margin": margin + "px"
                 })
                 .click(function () {
-                    cellClicked(indexForClosure, cell);
+                    cellClicked(indexForClosure);
                 })
                 .appendTo("#gameGrid");
 
@@ -108,7 +110,7 @@ function game() {
                     .attr("id", "dummyCell");
         }
 
-        cellIdentities[i] = cell;
+        cellIdentities[indexForClosure] = cell;
     }
 
     $("#shuffleAmountSelect select").change(function () {

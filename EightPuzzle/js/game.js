@@ -1,10 +1,14 @@
 const grid = [0, 1, 2, 3, 4, 5, 6, 7, 8];
 
+let gameIsOn = false;
+
 // imagePath must be wrapped in 'url()'
 function setUpTheGame(imagePath) {
     console.log("setUpTheGame imagePath:" + imagePath);
 
     $(".gameCell").css("background-image", imagePath);
+
+    resetActives();
 }
 
 function shuffleCells(amount, callback) {
@@ -19,8 +23,32 @@ function shuffleCells(amount, callback) {
             });
         } else {
             finalCallback();
+            resetActives();
+            gameIsOn = true;
         }
     }
+}
+
+function makeNeighborsActive(slot) {
+    const neighbors = neighborSlotsOfSlot(slot);
+    neighbors.forEach(function (val) {
+        const identity = grid[val];
+        const cell = cellIdentities[identity];
+        cell.addClass("activeCell");
+    });
+}
+
+function makeEveryoneActive() {
+    $(".gameCell").addClass("activeCell");
+}
+
+function makeEveryoneInactive() {
+    $(".gameCell").removeClass("activeCell");
+}
+
+function resetActives() {
+    makeEveryoneInactive();
+    makeNeighborsActive(slotOfDummy());
 }
 
 function shuffleStep(forbiddenSlot, callback) {
@@ -43,7 +71,11 @@ function swapIdentitiesInSlots(slot1, slot2, callback) {
 
     grid.swap(slot1, slot2);
 
-    moveToSlot(identity1, slot2, callback);
+    moveToSlot(identity1, slot2, function () {
+        if (callback !== undefined) {
+            callback();
+        }
+    });
     moveToSlot(identity2, slot1); //only need the callback from one of them.
 }
 
@@ -54,7 +86,7 @@ function moveToSlot(identity, slot, callback) {
     cell.animate({
         top: calcCellTop(slot),
         left: calcCellLeft(slot)
-    }, 250, callback);
+    }, 500, callback);
 }
 
 function neighborSlotsOfSlot(slot) {
@@ -83,5 +115,57 @@ function neighborSlotsOfSlot(slot) {
         var m3d = Math.abs((i % 3) - (slot % 3));
         return 0 <= i && i < 9 && (m3d === 1 || m3d === 0);
     }
+}
 
+function getNeighborSlotsOfDummy() {
+    return neighborSlotsOfSlot(slotOfDummy(0));
+}
+
+function slotOfDummy() {
+    return grid.indexOf(0);
+}
+
+function cellClicked(identity) {
+    if (!gameIsOn) {
+        console.log("game is not on");
+        return;
+    }
+
+    const slot = grid.indexOf(identity);
+
+    if (getNeighborSlotsOfDummy().includes(slot)) {
+        console.log("clicked on active identity: " + identity);
+        makeEveryoneActive();
+        swapIdentitiesInSlots(slotOfDummy(), slot, function () {
+            resetActives();
+            checkVictoryAndAct();
+        });
+
+    } else {
+        console.log("clicked on inactive identity: " + identity);
+    }
+}
+
+function checkVictoryAndAct() {
+    const victory = didWeWin();
+    console.log("did we win? " + victory);
+
+    if (victory) {
+        gameIsOn = false;
+        makeEveryoneActive();
+
+        $("#gameIsOn").fadeOut(250, function () {
+            $("#victory").fadeIn(250);
+        });
+    }
+}
+
+function didWeWin() {
+    for (var i = 0; i < grid.length; i++) {
+        if (grid[i] !== i) {
+            return false;
+        }
+    }
+
+    return true;
 }

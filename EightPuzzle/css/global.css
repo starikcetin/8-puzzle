@@ -1,0 +1,25 @@
+.button {
+    transition-duration: 0.5s;
+
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 10px;
+
+    background: #AAA;
+    color: #EEE;
+    border-radius: 5px;
+}
+
+.button:hover {
+    transition-duration: 0.5s;
+
+    background: #DDD;
+    color: #111;
+    cursor: pointer;
+}
+
+.button:active {
+    transition-duration: 0s;
+
+    background: #FFF;
+}

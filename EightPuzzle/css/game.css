@@ -1,0 +1,65 @@
+/*
+* grid and cells
+*/
+
+.gameCell {
+    transition-duration: 0.5s;
+    transition: top 0s;
+    transition: left 0s;
+
+    position: absolute;
+    border-radius: 10px;
+    background-repeat: no-repeat;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    /*background: bisque;*/
+    font-size: 200px;
+    color: white;
+}
+
+#dummyCell {
+    visibility: hidden;
+    background: #DDD !important;
+
+    color: black;
+    font-size: 75px;
+}
+
+#gameGrid {
+    width: 700px;
+    height: 700px;
+    position: relative;
+    font-size:0;
+}
+
+#gameGrid:hover .gameCell:not(.activeCell) {
+    opacity: 0.5;
+}
+
+
+/*
+* below grid
+*/
+
+#belowGrid {
+    background-color: red;
+    /*    display: flex;
+        flex-direction:row;
+        align-items: center;
+        justify-content: center;*/
+}
+
+#gameIsOn {
+    transition-duration: 0.5s;
+    color: #FF5;
+    font-size: 50px;
+}
+
+#victory {
+    transition-duration: 0.5s;
+    color: #5F5;
+    font-size: 50px;
+}

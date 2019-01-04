@@ -5,13 +5,16 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+        <link href="css/game.css" rel="stylesheet" type="text/css"/>
+        <link href="css/global.css" rel="stylesheet" type="text/css"/>
+        <link href="css/home.css" rel="stylesheet" type="text/css"/>
+        <link href="css/imageSelect.css" rel="stylesheet" type="text/css"/>
         <link href="css/page.css" rel="stylesheet" type="text/css"/>
         <link href="css/utils.css" rel="stylesheet" type="text/css"/>
-        <link href="css/individual.css" rel="stylesheet" type="text/css"/>
-
+        
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src="https://unpkg.com/animate-css-grid@latest"></script>
-        
+
         <script src="js/utils.js" type="text/javascript"></script>
         <script src="js/jQueryExtensions.js" type="text/javascript"></script>
         <script src="js/main.js" type="text/javascript"></script>
@@ -63,18 +66,24 @@
             <div id="gameGrid">
             </div>
 
-            <p id="shuffleAmountSelect">
-                Select:
-                <select>
-                    <option>Shuffle Amount</option>
-                    <option>3</option>
-                    <option>30</option>
-                </select>
-            </p>
+            <div id="belowGrid">
+                <p id="shuffleAmountSelect">
+                    Select:
+                    <select>
+                        <option>Shuffle Amount</option>
+                        <option>3</option>
+                        <option>30</option>
+                    </select>
+                </p>
 
-            <p id="gameIsOn" style="display: none;">
-                The game is on.
-            </p>
+                <p id="gameIsOn" style="display: none;">
+                    The game is on.
+                </p>
+
+                <p id="victory" style="display: none;">
+                    You won. Congratulations.
+                </p>
+            </div>
         </div>
     </body>
 </html>
