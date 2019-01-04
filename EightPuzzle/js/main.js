@@ -79,6 +79,8 @@ function game() {
 
         const l = w * (i % 3);
         const t = h * Math.floor(i / 3);
+        
+        const margin = 5;
 
         const cell = $("<div>")
             .text(i)
@@ -86,10 +88,11 @@ function game() {
             .css({
                 top: t,
                 left: l,
-                width: w,
-                height: h,
-                "background-size": gw + "px " + gh + "px",
-                "background-position": (-l) + "px " + (-t) + "px"
+                width: w - margin*2,
+                height: h - margin*2,
+                "background-size": gw - margin*2 + "px " + gh - margin*2 + "px",
+                "background-position": (-l) + "px " + (-t) + "px",
+                "margin": margin + "px"
             })
             .click(() => cellClicked(indexForClosure, cell))
             .appendTo("#gameGrid");
