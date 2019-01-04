@@ -85,7 +85,7 @@ function game() {
         const margin = 5;
 
         const cell = $("<div>")
-                .text(i)
+//                .text(i)
                 .addClass("gameCell")
                 .css({
                     top: top,
@@ -103,7 +103,7 @@ function game() {
 
         if (i === 0) {
             cell
-                    .text("dummy")
+//                    .text("dummy")
                     .attr("id", "dummyCell");
         }
 

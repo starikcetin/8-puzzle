@@ -10,19 +10,18 @@
     position: absolute;
     border-radius: 10px;
     background-repeat: no-repeat;
-
-    display: inline-flex;
+    
+/*    display: inline-flex;
     align-items: center;
     justify-content: center;
 
-    /*background: bisque;*/
+    background: bisque;
     font-size: 200px;
-    color: white;
+    color: white;*/
 }
 
 #dummyCell {
     visibility: hidden;
-    background: #DDD !important;
 
     color: black;
     font-size: 75px;
@@ -32,7 +31,7 @@
     width: 700px;
     height: 700px;
     position: relative;
-    font-size:0;
+    font-size: 0;
 }
 
 #gameGrid:hover .gameCell:not(.activeCell) {
