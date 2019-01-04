@@ -96,10 +96,8 @@
     position: absolute;
     top:0;
     left:0;
-
-    box-sizing: border-box;
-    border: #AAA 1px solid;
     border-radius: 10px;
+    background-repeat: no-repeat;
 
     display: inline-flex;
     align-items: center;
