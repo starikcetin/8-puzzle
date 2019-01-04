@@ -1,7 +1,9 @@
 #homeContent {
-    margin-top:20px;
-    margin-bottom:15px;
+    margin-top: 2px;
+    margin-bottom: 15px;
     overflow: hidden;
+    
+    font-size: 25px;
 }
 
 #homeContent > div {
