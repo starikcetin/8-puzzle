@@ -13,12 +13,16 @@ $(function () {
 //    return;
 //    //
 
-//
-// home
-//
+    home();
+    imageSelect();
+    game();
+});
+
+
+function home() {
     var homeContentCycle = $("#homeContent")
-            .encapsulateLargestChild()
-            .fadeCycleChildren(500, 500, 500);
+        .encapsulateLargestChild()
+        .fadeCycleChildren(500, 500, 500);
 
     $("#homeToImageSelectButton").click(function () {
         $("#home").fadeOut(350, function () {
@@ -26,10 +30,9 @@ $(function () {
             $("#imageSelect").fadeIn(350);
         });
     });
+}
 
-//
-// image select
-//
+function imageSelect() {
     var selectedImageIndex = 0;
 
     for (var i = 0; i < imageCount; i++) {
@@ -38,19 +41,19 @@ $(function () {
         const indexForClosure = i;
 
         $('<div/>')
-                .css({"background-image": getImageWithIndex(indexForClosure)})
-                .addClass('imageButton')
-                .click(function () {
-                    selectedImageIndex = indexForClosure;
+            .css({"background-image": getImageWithIndex(indexForClosure)})
+            .addClass('imageButton')
+            .click(function () {
+                selectedImageIndex = indexForClosure;
 
-                    $('#selectedImageButton').removeAttr('id');
-                    $(this).attr('id', 'selectedImageButton');
+                $('#selectedImageButton').removeAttr('id');
+                $(this).attr('id', 'selectedImageButton');
 
-                    $('#continueButton')
-                            .css({visibility: 'visible'})
-                            .animate({opacity: '1'}, 350);
-                })
-                .appendTo('#imageButtonContainer');
+                $('#continueButton')
+                    .css({visibility: 'visible'})
+                    .animate({opacity: '1'}, 350);
+            })
+            .appendTo('#imageButtonContainer');
     }
 
     $("#continueButton").click(function () {
@@ -60,13 +63,22 @@ $(function () {
             $("#game").fadeIn(350);
         });
     });
+}
 
-//
-// game
-//
+function game() {
+    $("<div>")
+        .text("dummy")
+        .attr("id", "dummyCell")
+        .addClass("gameCell")
+        .appendTo("#gameGrid");
 
-    
-});
+    for (var i = 1; i < 9; i++) {
+        $("<div>")
+            .text(i)
+            .addClass("gameCell")
+            .appendTo("#gameGrid");
+    }
+}
 
 function getImageWithIndex(index) {
     return "url(" + imageFolderPath + index + imageExtension + ")";
