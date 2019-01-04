@@ -20,11 +20,11 @@ $(function () {
     imageSelect();
     game();
 
-    // --- DEBUG BEGIN ---
-    $("#home").hide();
-    $("#game").show();
-    setUpTheGame(getImageWithIndex(0));
-    // --- DEBUG END   ---
+//    // --- DEBUG BEGIN ---
+//    $("#home").hide();
+//    $("#game").show();
+//    setUpTheGame(getImageWithIndex(0));
+//    // --- DEBUG END   ---
 });
 
 
