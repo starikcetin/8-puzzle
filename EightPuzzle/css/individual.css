@@ -91,7 +91,7 @@
 }
 
 .gameCell {
-    /*transition-duration: 1s;*/
+    transition-duration: 1s;
 
     position: absolute;
     top:0;
@@ -109,12 +109,18 @@
 }
 
 #dummyCell {
+    visibility: hidden;
     background: #DDD !important;
 
     color: black;
     font-size: 75px;
 }
 
-.highlightedCell {
+#gameGrid:hover .activeCell {
+    opacity: 1;
     border: 25px darkred solid;
+}
+
+#gameGrid:hover .gameCell {
+    opacity: 0.5;
 }

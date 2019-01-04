@@ -177,22 +177,4 @@
             .on('selectstart', false);
     };
 
-    Array.prototype.randomElement = function () {
-        return this[Math.floor(Math.random() * this.length)];
-    };
-
-    Array.prototype.swap = function (i1, i2) {
-        const val1 = this[i1];
-        this[i1] = this[i2];
-        this[i2] = val1;
-    };
-
-    Array.prototype.exceptVal = function (val) {
-        return this.splice().filter(n => n !== val);
-    };
-
-    Array.prototype.exceptIndex = function (index) {
-        return this.slice(0, index-1).concat(this.slice(index, this.length));
-    };
-
 }(jQuery));
