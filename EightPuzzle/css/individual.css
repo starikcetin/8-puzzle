@@ -46,18 +46,6 @@
     border-top-color: aqua;
 }
 
-/*.imageButton:nth-of-type(1){
-    background-image: url('../res/1.jpg');
-}
-
-.imageButton:nth-of-type(2){
-    background-image: url('../res/2.jpg');
-}
-
-.imageButton:nth-of-type(3){
-    background-image: url('../res/3.jpg');
-}*/
-
 #homeContent {
     margin-top:20px;
     margin-bottom:15px;
