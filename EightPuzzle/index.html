@@ -24,41 +24,41 @@
     <body class="centerContent">
         <div id="home">
             <h1>
-                8 Puzzle
+                8 puzzle
             </h1>
 
             <div id="homeContent">
                 <div>
-                    <p>S. Tarık Çetin</p>
-                    <p>21702765</p>
-                </div>
-                
-                <div>
-                    <p>CTIS 255</p>
-                    <p>Web Technologies</p>
-                    <p>Fall 2018</p>
+                    <p style="font-size: 25px;">created by</p>
+                    <p style="margin-bottom: 50px;">S. Tarık Çetin</p>
                 </div>
 
                 <div>
-                    <p>Enjoy</p>
+                    <p style="font-size: 25px; margin-bottom: 50px;">bilkent university</p>
+                    <p>ctis 255</p>
+                    <p style="margin-bottom: 50px;">web technologies</p>
+                    <p style="font-size: 25px;">fall 2018</p>
+                </div>
+
+                <div>
+                    <p>enjoy</p>
                 </div>
             </div>
 
             <div id="homeToImageSelectButton" class="button">
-                Play
+                play
             </div>
         </div>
 
         <div id="imageSelect" style="display: none;">
             <h1>
-                Select an Image
+                please pick an image
             </h1>
 
-            <div id="imageButtonContainer">
-            </div>
+            <div id="imageButtonContainer"></div>
 
             <div id="continueButton" style="visibility: hidden; opacity: 0" class="button">
-                Continue
+                continue
             </div>
         </div>
 
@@ -67,31 +67,41 @@
             </div>
 
             <p id="shuffleAmountSelect">
-                Select:
+                please select a
                 <select>
-                    <option>Shuffle Amount</option>
+                    <option>shuffle amount</option>
                     <option>3</option>
                     <option>30</option>
                 </select>
             </p>
 
+            <p id="shuffling" style="display: none;">
+                shuffling...
+            </p>
+
             <div id="gameIsOn" style="display: none;">
-                <p>The game is on.</p>
-                <p>You may press F5 for a restart and ECS for the solution.</p>
+                <p>the game is on</p>
+                <p style="font-size: 25px;">you may press F5 for a restart or ESC for the solution</p>
             </div>
 
             <div id="victory" style="display: none;">
-                <p>You won. Congratulations.</p>
-                <p style="font-size: 25px;">You may press F5 to play again.</p>
+                <p>congratulations, you won</p>
+                <p style="font-size: 25px;">you may press F5 to play again</p>
             </div>
 
             <p id="solving" style="display: none;">
-                Solving...
+                solving...
             </p>
 
             <p id="solved" style="display: none;">
-                You may press F5 for a restart.
+                you may press F5 for a restart
             </p>
         </div>
+
+        <p id="githubLink" style="text-align: right;">
+            github:
+            <a href="https://github.com/starikcetin/ctis255-term-project" target="_blank" rel="alternate licence">project</a>
+            <a href="https://github.com/starikcetin" target="_blank" rel="author">author</a>
+        </p>
     </body>
 </html>

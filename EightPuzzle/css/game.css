@@ -2,6 +2,23 @@
 * grid and cells
 */
 
+#gameGrid {
+    width: 650px;
+    height: 650px;
+    position: relative;
+    font-size: 0;
+
+    margin-left: auto;
+    margin-right: auto;
+
+    margin-bottom: 50px;
+}
+
+#gameGrid:hover .gameCell:not(.activeCell) {
+    transition: opacity 0.5s ease;
+    opacity: 0.35;
+}
+
 .gameCell {
     transition-duration: 0.5s;
     transition: top 0s;
@@ -12,37 +29,20 @@
     border-radius: 10px;
     background-repeat: no-repeat;
 
-    /*    display: inline-flex;
-        align-items: center;
-        justify-content: center;
-    
-        background: bisque;
-        font-size: 200px;
-        color: white;*/
+    /*display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    background: bisque;
+    font-size: 200px;
+    color: white;*/
 }
 
 #dummyCell {
     visibility: hidden;
 
-    color: black;
+    color: #171717;
     font-size: 75px;
-}
-
-#gameGrid {
-    width: 700px;
-    height: 700px;
-    position: relative;
-    font-size: 0;
-    
-    margin-left: auto;
-    margin-right: auto;
-
-    margin-bottom: 25px;
-}
-
-#gameGrid:hover .gameCell:not(.activeCell) {
-    transition: opacity 0.5s ease;
-    opacity: 0.35;
 }
 
 .activeCell {
@@ -62,9 +62,29 @@
     font-size: 40px;
 }
 
+#game > * > p:not(:last-child) {
+    margin-bottom: 10px;
+}
+
+#game p:after {
+    content:'';
+    display:inline-block;
+    clear:both;
+}
+
 #game > *:not(#gameGrid) {
     height: 100px;
     width: 100%;
+}
+
+#shuffleAmountSelect select {
+    margin-top: -10px;
+}
+
+body > div {
+    padding: 50px;
+    border-left: 1px #DDD solid;
+    border-right: 1px #DDD solid;
 }
 
 /*#gameIsOn {

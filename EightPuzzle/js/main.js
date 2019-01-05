@@ -114,13 +114,13 @@ function game() {
         const selected = $(this).find(":selected");
 
         if (selected.index() !== 0) {
-            $('#shuffleAmountSelect').animate({opacity: 0}, 250, function () {
+            $('#shuffleAmountSelect').fadeOut(250, function () {
+                $('#shuffling').fadeIn(250);
 
                 shuffleCells(selected.text(), function () {
-                    $('#shuffleAmountSelect').fadeOut(0, function () {
+                    $('#shuffling').fadeOut(250, function () {
                         $('#gameIsOn').fadeIn(250);
                     });
-
                 });
             });
         }

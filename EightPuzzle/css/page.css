@@ -2,11 +2,13 @@
 @import url('https://fonts.googleapis.com/css?family=Josefin+Sans:100');
 
 body {
+    background-color: #171717;
+
     font-family: 'Josefin Sans', sans-serif;
     font-weight: 100;
     font-size: 40px;
 
-    color: #222;
+    color: #DDD;
 }
 
 html, body {
@@ -30,6 +32,55 @@ h1 {
     border-bottom: 1px #444 solid;
 }*/
 
-p {
-    margin: 10px 5px;
+p:not(:last-child) {
+    margin-bottom: 10px;
+}
+
+a {
+    transition-duration: 0.5s;
+    display: inline-block;
+    padding: 5px;
+
+    border: 1px transparent solid;
+    border-bottom-color: #DDD;
+    border-radius: 0px;
+
+    color: #DDD;
+    text-decoration: none;
+}
+
+a:hover {
+    transition-duration: 0.5s;
+    border-color: #DDD;
+    cursor: pointer;
+}
+
+select {
+    margin: 0;
+    padding: 0;
+    border: 0;
+
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 100;
+    font-size: 40px;
+
+    vertical-align: baseline;
+    min-width: 200px;
+    min-height: 50px;
+
+    transition-duration: 0.5s;
+    display: inline-block;
+    padding: 10px 20px;
+    color: #DDD;
+    background-color: #171717;
+
+    border: 1px transparent solid;
+    border-bottom-color: #DDD;
+    border-radius: 0px;
+}
+
+select:hover {
+    transition-duration: 0.5s;
+    border-color: #DDD;
+    cursor: pointer;
 }

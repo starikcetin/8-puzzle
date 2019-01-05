@@ -13,7 +13,7 @@ function setUpTheGame(imagePath) {
     makeEveryoneActive();
 }
 
-function shuffleCells(amount, callback) {
+function shuffleCells(amount, callback) {    
     console.log("shuffleCells amount:" + amount);
 
     stepper(0, 0, amount, callback);
