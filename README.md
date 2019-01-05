@@ -1,8 +1,11 @@
 # ctis255-term-project
 My term project for CTIS 255 - Web Technologies course.
 
+JQuery + CSS + HTML
+
+Licence
 ----
 
-MIT licence. Refer to the [LICENCE](/LICENSE) file.
+Refer to the [LICENCE](/LICENSE) file.
 
 Copyright (c) 2019 S. Tarık Çetin
