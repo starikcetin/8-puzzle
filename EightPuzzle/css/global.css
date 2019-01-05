@@ -1,20 +1,19 @@
-.button {
+/*.button {
     transition-duration: 0.5s;
 
     display: inline-block;
-    padding: 10px 20px;
-    margin: 10px;
+    width: 500px;
+    padding: 20px 0;
 
-    background: #AAA;
-    color: #EEE;
-    border-radius: 5px;
+    background: #333;
+    color: #FFF;
+    border-radius: 10px;
 }
 
 .button:hover {
     transition-duration: 0.5s;
 
-    background: #DDD;
-    color: #111;
+    background: #777;
     cursor: pointer;
 }
 
@@ -22,4 +21,47 @@
     transition-duration: 0s;
 
     background: #FFF;
+    color: #777;
+}*/
+
+.button {
+    transition-duration: 0.5s;
+    display: inline-block;
+    padding: 10px 20px;
+    color: #222;
+
+    border: 1px transparent solid;
+    border-bottom-color: #222;
+    border-radius: 0px;
+}
+
+.button:hover {
+    transition-duration: 0.5s;
+    border-color: #222;
+    cursor: pointer;
+}
+
+select {
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 100;
+    font-size: 40px;
+
+    vertical-align: baseline;
+    min-width: 200px;
+    min-height: 50px;
+
+    transition-duration: 0.5s;
+    display: inline-block;
+    padding: 10px 20px;
+    color: #222;
+
+    border: 1px transparent solid;
+    border-bottom-color: #222;
+    border-radius: 0px;
+}
+
+select:hover {
+    transition-duration: 0.5s;
+    border-color: #222;
+    cursor: pointer;
 }

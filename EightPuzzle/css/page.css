@@ -4,21 +4,31 @@
 body {
     font-family: 'Josefin Sans', sans-serif;
     font-weight: 100;
-    font-size: 30px;
-    
+    font-size: 40px;
+
     color: #222;
 }
 
 html, body {
     width: 100%;
     height: 100%;
-    overflow: hidden;
 }
 
 h1 {
-    font-size: 50px;
-    margin: 10px 5px;
+    position: relative;
+    font-size: 75px;
+    margin: 0 auto;
+    width: fit-content;
+    height: fit-content;
+    /*text-decoration: underline;*/
 }
+
+/*h1:after {
+    content:'';
+    display: block;
+    width: 100%;
+    border-bottom: 1px #444 solid;
+}*/
 
 p {
     margin: 10px 5px;

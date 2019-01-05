@@ -1,11 +1,8 @@
-.centerContentHorizontal {
-    text-align: center;
-}
-
-.centerContentVertical {
+.centerContent {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+    text-align: center;
 }

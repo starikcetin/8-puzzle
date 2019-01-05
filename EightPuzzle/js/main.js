@@ -31,7 +31,7 @@ $(function () {
 function home() {
     const homeContentCycle = $("#homeContent")
             .encapsulateLargestChild()
-            .fadeCycleChildren(500, 500, 500);
+            .fadeCycleChildren(500, 500, 2000);
 
     $("#homeToImageSelectButton").click(function () {
         $("#home").fadeOut(350, function () {
@@ -122,6 +122,14 @@ function game() {
                     });
 
                 });
+            });
+        }
+    });
+
+    $(document).keyup(function (e) {
+        if (e.keyCode === 27) {
+            showSolution(function () {
+                console.log("showSolution final callback");
             });
         }
     });

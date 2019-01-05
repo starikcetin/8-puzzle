@@ -2,13 +2,15 @@ const grid = [0, 1, 2, 3, 4, 5, 6, 7, 8];
 
 let gameIsOn = false;
 
+const moveHistory = [];
+
 // imagePath must be wrapped in 'url()'
 function setUpTheGame(imagePath) {
     console.log("setUpTheGame imagePath:" + imagePath);
 
     $(".gameCell").css("background-image", imagePath);
-
-    resetActives();
+    
+    makeEveryoneActive();
 }
 
 function shuffleCells(amount, callback) {
@@ -29,28 +31,6 @@ function shuffleCells(amount, callback) {
     }
 }
 
-function makeNeighborsActive(slot) {
-    const neighbors = neighborSlotsOfSlot(slot);
-    neighbors.forEach(function (val) {
-        const identity = grid[val];
-        const cell = cellIdentities[identity];
-        cell.addClass("activeCell");
-    });
-}
-
-function makeEveryoneActive() {
-    $(".gameCell").addClass("activeCell");
-}
-
-function makeEveryoneInactive() {
-    $(".gameCell").removeClass("activeCell");
-}
-
-function resetActives() {
-    makeEveryoneInactive();
-    makeNeighborsActive(slotOfDummy());
-}
-
 function shuffleStep(forbiddenSlot, callback) {
     console.log("shuffle step forbiddenSlot: " + forbiddenSlot);
 
@@ -58,12 +38,12 @@ function shuffleStep(forbiddenSlot, callback) {
     const neighborSlots = neighborSlotsOfSlot(slotOfDummy).exceptValue(forbiddenSlot);
     const randomNeighborSlot = neighborSlots.randomElement();
 
-    swapIdentitiesInSlots(slotOfDummy, randomNeighborSlot, function () {
+    swapIdentitiesInSlots(true, slotOfDummy, randomNeighborSlot, function () {
         callback(slotOfDummy);
     });
 }
 
-function swapIdentitiesInSlots(slot1, slot2, callback) {
+function swapIdentitiesInSlots(shouldRecordHistory, slot1, slot2, callback) {
     console.log("swapIdentitiesInSlots slot1: " + slot1 + " slot2: " + slot2);
 
     const identity1 = grid[slot1];
@@ -77,6 +57,10 @@ function swapIdentitiesInSlots(slot1, slot2, callback) {
         }
     });
     moveToSlot(identity2, slot1); //only need the callback from one of them.
+
+    if (shouldRecordHistory) {
+        moveHistory.push({A: slot1, B: slot2});
+    }
 }
 
 function moveToSlot(identity, slot, callback) {
@@ -136,7 +120,7 @@ function cellClicked(identity) {
     if (getNeighborSlotsOfDummy().includes(slot)) {
         console.log("clicked on active identity: " + identity);
         makeEveryoneActive();
-        swapIdentitiesInSlots(slotOfDummy(), slot, function () {
+        swapIdentitiesInSlots(true, slotOfDummy(), slot, function () {
             resetActives();
             checkVictoryAndAct();
         });
@@ -168,4 +152,67 @@ function didWeWin() {
     }
 
     return true;
+}
+
+function showSolution(callback) {
+    if (!gameIsOn) {
+        console.log("showSolution abort: game is not on yet.");
+        return;
+    }
+    
+    
+    
+    $("#gameIsOn").fadeOut(250, function() {
+       $("#solving").fadeIn(250);
+    });
+    
+    makeEveryoneActive();
+    
+    console.log("showSolution start");
+    gameIsOn = false;
+
+    stepper(moveHistory, callback);
+
+    function stepper(moveHistory, finalCallback) {
+        if (moveHistory.length > 0) {
+            const move = moveHistory.pop();
+            const a = move.A;
+            const b = move.B;
+
+            console.log('showSolution > stepper reversing a: ' + a + ' b: ' + b);
+
+            swapIdentitiesInSlots(false, a, b, function () {
+                stepper(moveHistory, finalCallback);
+            });
+        } else {
+            $("#solving").fadeOut(250, function() {
+               $("#solved").fadeIn(250);
+            });
+            
+            finalCallback();
+            console.log("showSolution > stepper end");
+        }
+    }
+}
+
+function makeNeighborsActive(slot) {
+    const neighbors = neighborSlotsOfSlot(slot);
+    neighbors.forEach(function (val) {
+        const identity = grid[val];
+        const cell = cellIdentities[identity];
+        cell.addClass("activeCell");
+    });
+}
+
+function makeEveryoneActive() {
+    $(".gameCell").addClass("activeCell");
+}
+
+function makeEveryoneInactive() {
+    $(".gameCell").removeClass("activeCell");
+}
+
+function resetActives() {
+    makeEveryoneInactive();
+    makeNeighborsActive(slotOfDummy());
 }

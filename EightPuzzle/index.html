@@ -21,7 +21,7 @@
         <script src="js/game.js" type="text/javascript"></script>
     </head>
 
-    <body class="centerContentHorizontal centerContentVertical">
+    <body class="centerContent">
         <div id="home">
             <h1>
                 8 Puzzle
@@ -29,14 +29,14 @@
 
             <div id="homeContent">
                 <div>
-                    <p>Term project for</p>
-                    <p>CTIS 255 - Web Technologies</p>
-                    <p>Fall 2018</p>
-                </div>
-
-                <div>
                     <p>S. Tarık Çetin</p>
                     <p>21702765</p>
+                </div>
+                
+                <div>
+                    <p>CTIS 255</p>
+                    <p>Web Technologies</p>
+                    <p>Fall 2018</p>
                 </div>
 
                 <div>
@@ -75,14 +75,23 @@
                 </select>
             </p>
 
-            <p id="gameIsOn" style="display: none;">
-                The game is on.
-            </p>
+            <div id="gameIsOn" style="display: none;">
+                <p>The game is on.</p>
+                <p>You may press F5 for a restart and ECS for the solution.</p>
+            </div>
 
             <div id="victory" style="display: none;">
                 <p>You won. Congratulations.</p>
                 <p style="font-size: 25px;">You may press F5 to play again.</p>
             </div>
+
+            <p id="solving" style="display: none;">
+                Solving...
+            </p>
+
+            <p id="solved" style="display: none;">
+                You may press F5 for a restart.
+            </p>
         </div>
     </body>
 </html>

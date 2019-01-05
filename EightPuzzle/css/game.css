@@ -33,6 +33,9 @@
     height: 700px;
     position: relative;
     font-size: 0;
+    
+    margin-left: auto;
+    margin-right: auto;
 
     margin-bottom: 25px;
 }
@@ -56,38 +59,22 @@
     padding: 0;
     border: 0;
 
-    font-size: 50px;
+    font-size: 40px;
 }
 
-#gameIsOn {
+#game > *:not(#gameGrid) {
     height: 100px;
     width: 100%;
+}
 
+/*#gameIsOn {
     color: #990;
 }
 
 #victory {
-    height: 100px;
-    width: 100%;
-
     color: #090;
 }
 
 #shuffleAmountSelect {
-    height: 100px;
-    width: 100%;
-
     color: #444;
-}
-
-#shuffleAmountSelect select {
-    min-width:200px;
-    min-height: 50px;
-    border-width: 3px;
-
-    font-family: 'Josefin Sans', sans-serif;
-    font-weight: 100;
-    font-size: 25px;
-
-    vertical-align: middle;
-}
+}*/
