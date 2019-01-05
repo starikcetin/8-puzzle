@@ -5,7 +5,4 @@ JQuery + CSS + HTML
 
 Licence
 ----
-
 Refer to the [LICENCE](/LICENSE) file.
-
-Copyright (c) 2019 S. Tarık Çetin
