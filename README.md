@@ -1,5 +1,5 @@
 # ctis255-term-project
-My term project for CTIS 255 - Web Technologies course.
+8 Puzzle: my term project for CTIS 255 Web Technologies course.
 
 JQuery + CSS + HTML
 
